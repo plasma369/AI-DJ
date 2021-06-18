@@ -1,0 +1,29 @@
+.heading
+{
+    font-size: 23;
+    width: 100%;
+    margin: 0px;
+}
+
+.note
+{
+    font-size: 15px;
+    color: white;
+}
+
+body
+{
+    background-size: cover;
+}
+
+.div_name_img
+{
+    height: 50px;
+    border-radius: 100px;
+}
+
+.UI
+{
+    font-size: 23px;
+    margin: 15px;
+}
