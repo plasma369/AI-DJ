@@ -37,7 +37,7 @@ function gotPoses(results)
 
         if(rightWristY < 250)
         {
-
+            song = loadSound("music2.mp3");
             play();
         }
     }
