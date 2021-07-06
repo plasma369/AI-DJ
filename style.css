@@ -16,9 +16,19 @@ body
     background-size: cover;
 }
 
-.div_name_img
+.div_speed
 {
-    height: 50px;
+    float: left;
+}
+
+.div_volume
+{
+    float: right;
+}
+
+.div_img
+{
+    width: 200px;
     border-radius: 100px;
 }
 
@@ -26,6 +36,12 @@ body
 {
     font-size: 23px;
     margin: 15px;
+}
+
+.play_button
+{
+    width: 130px;
+    font-size: 25px;
 }
 
 canvas
