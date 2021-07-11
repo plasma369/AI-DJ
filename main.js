@@ -3,7 +3,6 @@ song = "";
 function preload()
 {
     song = loadSound("music.mp3");
-    play();
 }
 
 scoreRightWrist = 0;
@@ -45,7 +44,7 @@ function gotPoses(results)
 
     leftWristX = results[0].pose.leftWrist.x;
     leftWristY = results[0].pose.leftWrist.y;
-    console.log("leftWristX = " + leftWristX +" leftWristY = "+ leftWristY);
+    console.log("leftWristX = " + leftWristX +" leftWristY = "+ leftWristY);  
   }
 }
 
@@ -55,23 +54,47 @@ function draw() {
     fill("#FF0000");
     stroke("#FF0000");
 
-    if(scoreRightWrist + scoreleftWrist > 0.4)
+    if(scoreRightWrist > 0.2)
     { 
         circle(rightWristX,rightWristY,20);
 
-        if(rightWristY > 300)
+        if(rightWristY >0 && rightWristY <= 100)
         {
-            document.getElementById("song").innerHTML = "song: song1";        
-            song = loadSound("music.mp3");
-            play();
+            document.getElementById("speed").innerHTML = "Speed = 0.5x";        
+            song.rate(0.5);
         }
-        if(leftWristY > 250)
+        else if(rightWristY >100 && rightWristY <= 200)
         {
-            document.getElementById("song").innerHTML = "song: song2";      
-            song = loadSound("music2.mp3");
-            play();
+            document.getElementById("speed").innerHTML = "Speed = 1x";      
+            song.rate(1);
+        }
+        else if(rightWristY >200 && rightWristY <= 300)
+        {
+            document.getElementById("speed").innerHTML = "Speed = 1.5x";        
+            song.rate(1.5);
+        }
+        else if(rightWristY >300 && rightWristY <= 400)
+        {
+            document.getElementById("speed").innerHTML = "Speed = 2x";      
+            song.rate(2);
+        }
+        else if(rightWristY >400)
+        {
+            document.getElementById("speed").innerHTML = "Speed = 2.5x";        
+            song.rate(2.5);
         }
     }
+
+    if(scoreLeftWrist > 0.2)
+    {
+        circle(leftWristX,leftWristY,20);
+        InNumberleftWristY = Number(leftWristY); 
+        remove_decimals = floor(InNumberleftWristY);
+        volume = remove_decimals/500;
+        document.getElementById("volume").innerHTML = "Volume = " + volume;     
+        song.setVolume(volume); 
+    }
+
 }
 
 function play()
